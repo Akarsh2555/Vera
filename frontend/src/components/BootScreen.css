@@ -1,0 +1,244 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  color: var(--phosphor);
+  font-family: "Share Tech Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+  text-transform: uppercase;
+}
+
+.boot-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px
+  );
+  z-index: 1;
+}
+
+.boot-topbar, .boot-bottombar {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border-sub);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  z-index: 2;
+  background: var(--bg-raised);
+}
+
+.boot-bottombar {
+  border-bottom: none;
+  border-top: 1px solid var(--border-sub);
+}
+
+.boot-main {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding: 24px;
+}
+
+.boot-hexbg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(74, 222, 128, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.boot-logo-wrap {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.boot-logo-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--phosphor-dim);
+  margin-bottom: 8px;
+}
+
+.boot-logo {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+  margin-bottom: 8px;
+}
+
+.boot-logo-sub {
+  font-size: 1.2rem;
+  letter-spacing: 6px;
+  color: var(--phosphor);
+}
+
+.boot-logo-ver {
+  font-size: 0.75rem;
+  color: var(--phosphor-off);
+  margin-top: 12px;
+}
+
+.boot-divider, .boot-granted-divider {
+  width: 100%;
+  max-width: 600px;
+  height: 2px;
+  background: var(--border-sub);
+  margin: 16px 0;
+}
+
+.boot-log {
+  width: 100%;
+  max-width: 600px;
+  height: 160px;
+  overflow-y: hidden;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.boot-log-line {
+  display: flex;
+  gap: 12px;
+}
+
+.boot-log-ts {
+  color: var(--phosphor-off);
+}
+
+.boot-log-dim {
+  color: var(--phosphor-dim);
+}
+
+.boot-log-ok {
+  color: var(--phosphor);
+}
+
+.boot-log-warn {
+  color: var(--int-wait);
+}
+
+.boot-bar-wrap {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 24px;
+}
+
+.boot-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.boot-bar-track {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-sub);
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.boot-bar-fill {
+  height: 100%;
+  background: var(--phosphor);
+  transition: width 0.2s linear;
+}
+
+.boot-bar-pct {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--phosphor);
+}
+
+.boot-dots {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+  justify-content: space-between;
+}
+
+.boot-dot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.boot-dot {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--border-sub);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.boot-dot.on {
+  background: var(--phosphor);
+  border-color: var(--phosphor);
+  box-shadow: 0 0 8px var(--phosphor);
+}
+
+.boot-dot-label {
+  font-size: 0.7rem;
+  color: var(--phosphor-dim);
+}
+
+.boot-granted {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: fadein 0.4s ease-out;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.boot-access-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: var(--phosphor);
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+  margin-top: 16px;
+}
+
+.boot-access-sub {
+  font-size: 0.85rem;
+  color: var(--phosphor-dim);
+  margin-bottom: 32px;
+}
+
+.boot-enter-btn {
+  font-size: 1.2rem;
+  padding: 12px 32px;
+  border: 2px solid var(--phosphor);
+  background: transparent;
+  color: var(--phosphor);
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+
+.boot-enter-btn:hover {
+  background: var(--phosphor);
+  color: var(--bg);
+  box-shadow: 0 0 16px rgba(74, 222, 128, 0.4);
+}
